@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { Password } from '../services/password';
+import { transform } from 'typescript';
 
 // An interface that describes the properties
 // that are required to create a new User
@@ -23,16 +24,30 @@ interface UserDoc extends mongoose.Document {
   // updatedAt:string;
 }
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
-  password: {
-    type: String,
-    required: true,
-  },
-});
+  {
+    // for create pure json file
+    toJSON: {
+      transform(doc, ret) {
+        ret.id = ret._id;
+
+        delete ret._id;
+        delete ret.password;
+        delete ret.__v;
+      },
+    },
+  }
+);
 
 userSchema.pre('save', async function (done) {
   if (this.isModified('password')) {
