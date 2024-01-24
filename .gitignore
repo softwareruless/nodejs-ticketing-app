@@ -1,2 +1,4 @@
 auth/keys.json
 auth/node_modules
+client/node_modules
+client/.next
