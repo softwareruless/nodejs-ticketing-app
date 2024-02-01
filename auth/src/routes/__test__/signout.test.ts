@@ -1,7 +1,6 @@
 import request from 'supertest';
 
 import { app } from '../../app';
-import { isEqualsGreaterThanToken } from 'typescript';
 
 it('clears the cookie after signing out', async () => {
   await request(app)
