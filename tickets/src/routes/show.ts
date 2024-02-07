@@ -1,10 +1,6 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-import {
-  NotFoundError,
-  requireAuth,
-  validateRequest,
-} from '@ybticketing/common';
+import { NotFoundError, validateRequest } from '@ybticketing/common';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();
