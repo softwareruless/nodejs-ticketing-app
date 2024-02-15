@@ -3,4 +3,4 @@ export enum Subjects {
   OrderUpdated = 'order:updated',
 }
 
-const printSubject = (subject: Subjects) => {};
+// const printSubject = (subject: Subjects) => {};
