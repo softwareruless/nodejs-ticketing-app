@@ -5,3 +5,4 @@ client/node_modules
 client/.next
 common
 nats-test/node_modules
+orders/node_modules
